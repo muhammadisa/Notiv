@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "234336660718",
+    "firebase_url": "https://notiv-1f041.firebaseio.com",
+    "project_id": "notiv-1f041",
+    "storage_bucket": "notiv-1f041.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234336660718:android:1f9cd5116d803fd56bd7ff",
+        "android_client_info": {
+          "package_name": "com.xoxoer.notiv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234336660718-e89o9k2n3kng8t1q7eaqk5ej47slohrp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xoxoer.notiv",
+            "certificate_hash": "90361ba1bd36c335463aca45cdc5aafc029fd092"
+          }
+        },
+        {
+          "client_id": "234336660718-15iimmpjpajt7jupd99du9d6uklr9lp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDUOTflwh9xzYJK4tR1Zj-SHLW7HZF1Yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234336660718-15iimmpjpajt7jupd99du9d6uklr9lp4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
