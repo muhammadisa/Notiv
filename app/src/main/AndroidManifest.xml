@@ -16,8 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleTop">
+
+        </activity>
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop">
+
+        </activity>
 
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"

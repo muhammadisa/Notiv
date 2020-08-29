@@ -5,7 +5,11 @@ import com.xoxoer.notivlibrary.NotivFirebaseService
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class AppFirebaseMessaging : NotivFirebaseService(
-    defaultActivity = SplashActivity(),
+    channelId = "default",
     iconId = R.drawable.ic_launcher_foreground,
-    channelId = "default"
+    defaultActivities = SplashActivity(),
+    activities = mapOf(
+        "MAIN" to MainActivity(),
+        "SECOND" to SecondActivity()
+    )
 )

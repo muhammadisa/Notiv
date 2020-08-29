@@ -14,14 +14,12 @@ object NotivUtil {
         }
     }
 
-    inline fun resolveGoto(
+    inline fun resolveClickAction(
         intent: Intent,
-        crossinline onResolved: (resolved: LiveData<String>) -> Unit
+        crossinline onResolved: (resolved: String) -> Unit
     ) {
         try {
-            val goto = MutableLiveData<String>()
-            goto.value = intent.extras!!["goto"].toString()
-            onResolved(goto)
+            onResolved(intent.extras!!["click_action"].toString())
         } catch (e: NullPointerException) {
             e.printStackTrace()
         }
