@@ -3,14 +3,15 @@ package com.xoxoer.notiv
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.xoxoer.notivlibrary.NotivUtil
+import com.xoxoer.notivlibrary.NotivUtil.resolveRedirectResult
 
 class SecondActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        NotivUtil.resolveRedirectResult<Person>(intent) {
+        resolveRedirectResult<Person>(intent) {
             Log.e("KEY_1", it.first?.key1.toString())
             Log.e("KEY_2", it.first?.key2.toString())
             Log.e("KEY_3", it.first?.key3.toString())
@@ -19,6 +20,5 @@ class SecondActivity : AppCompatActivity() {
             Log.e("PARCELABLE NAME", it.second?.name.toString())
             Log.e("PARCELABLE AGE", it.second?.age.toString())
         }
-
     }
 }

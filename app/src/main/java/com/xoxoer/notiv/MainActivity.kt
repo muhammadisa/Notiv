@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.xoxoer.notivlibrary.NotivUtil.resolveRedirectResult
 
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +20,5 @@ class MainActivity : AppCompatActivity() {
             Log.e("PARCELABLE NAME", it.second?.name.toString())
             Log.e("PARCELABLE AGE", it.second?.age.toString())
         }
-
     }
 }
