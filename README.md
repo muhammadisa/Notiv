@@ -166,8 +166,13 @@ implementation 'com.github.muhammadisa:notiv:1.0.0'
 ## Send FCM Test
 
 ```json
+Method: POST
 Header: Authorization key=your_server_key
-		Content-Type application/json
+Header: Content-Type application/json
+----------------------------------------
+
+Body Request
+------------
 {
     "to": "device_fcm_token",
     "priority": "high",
