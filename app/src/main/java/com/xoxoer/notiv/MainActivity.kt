@@ -3,9 +3,6 @@ package com.xoxoer.notiv
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.xoxoer.notivlibrary.NotivUtil.resolveClickAction
-import com.xoxoer.notivlibrary.NotivUtil.resolveKeys
-import com.xoxoer.notivlibrary.NotivUtil.resolveJson
 import com.xoxoer.notivlibrary.NotivUtil.resolveRedirectResult
 
 
@@ -15,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        resolveRedirectResult<Person>(intent){
+        resolveRedirectResult<Person>(intent) {
             Log.e("KEY_1", it.first?.key1.toString())
             Log.e("KEY_2", it.first?.key2.toString())
             Log.e("KEY_3", it.first?.key3.toString())

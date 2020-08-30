@@ -1,5 +1,6 @@
 package com.xoxoer.notivlibrary
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.iid.FirebaseInstanceId
@@ -25,36 +26,6 @@ object NotivUtil {
         }
     }
 
-    inline fun <reified T> resolveJson(
-        intent: Intent,
-        crossinline onResolved: (resolved: T) -> Unit
-    ) {
-        try {
-            val parcelable = intent.extras!!["json"].toString()
-            onResolved(Gson().fromJson(parcelable, T::class.java))
-        } catch (e: NullPointerException) {
-            e.printStackTrace()
-        }
-    }
-
-    inline fun resolveKeys(
-        intent: Intent,
-        crossinline onResolved: (resolved: Keys) -> Unit
-    ) {
-        try {
-            onResolved(
-                Keys(
-                    intent.extras!!["key_1"].toString(),
-                    intent.extras!!["key_2"].toString(),
-                    intent.extras!!["key_3"].toString(),
-                    intent.extras!!["key_4"].toString()
-                )
-            )
-        } catch (e: NullPointerException) {
-            e.printStackTrace()
-        }
-    }
-
     inline fun <reified T> resolveRedirectResult(
         intent: Intent,
         crossinline onResolved: (resolved: Pair<Keys?, T?>) -> Unit
@@ -67,6 +38,15 @@ object NotivUtil {
         )
     }
 
+    fun resolveKeys(intent: Intent): Keys {
+        return Keys(
+            intent.extras!!["key_1"].toString(),
+            intent.extras!!["key_2"].toString(),
+            intent.extras!!["key_3"].toString(),
+            intent.extras!!["key_4"].toString()
+        )
+    }
+
     fun resolveKeys(remoteMessage: RemoteMessage): Keys {
         return Keys(
             remoteMessage.data["key_1"].toString(),
@@ -74,6 +54,16 @@ object NotivUtil {
             remoteMessage.data["key_3"].toString(),
             remoteMessage.data["key_4"].toString()
         )
+    }
+
+    fun redirectWithIntentData(
+        ctx: Context,
+        intent: Intent,
+        activity: Class<out AppCompatActivity>
+    ): Intent {
+        return Intent(ctx, activity)
+            .putExtra("redirect_keys", resolveKeys(intent))
+            .putExtra("redirect_json_content", intent.extras!!["json"].toString())
     }
 
     fun activityMapper(

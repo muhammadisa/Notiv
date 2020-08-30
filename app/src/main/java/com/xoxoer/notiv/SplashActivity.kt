@@ -1,11 +1,11 @@
 package com.xoxoer.notiv
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.xoxoer.notivlibrary.NotivUtil.activityMapper
 import com.xoxoer.notivlibrary.NotivUtil.getFCM
+import com.xoxoer.notivlibrary.NotivUtil.redirectWithIntentData
 import com.xoxoer.notivlibrary.NotivUtil.resolveClickAction
 
 class SplashActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
     private fun autoRedirect() {
         resolveClickAction(intent) { action ->
             val activity = activityMapper(action, Constant.activityMapper)
-            startActivity(Intent(this, activity))
+            startActivity(redirectWithIntentData(this, intent, activity))
         }
     }
 }
