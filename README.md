@@ -50,7 +50,31 @@ implementation 'com.github.muhammadisa:notiv:1.0.0'
    )
    ```
    
-3. Inside default activity class
+3. Add this to your AndroidManifest.xml inside <application> tag
+
+   ```kotlin
+   <meta-data
+       android:name="firebase_messaging_auto_init_enabled"
+       android:value="false" />
+   <meta-data
+       android:name="com.google.firebase.messaging.default_notification_icon"
+       android:resource="@drawable/ic_launcher_foreground" />
+   <meta-data
+       android:name="com.google.firebase.messaging.default_notification_channel_id"
+       android:value="default" />
+   
+   <service
+       android:name=".AppFirebaseMessaging"
+       android:exported="false">
+       <intent-filter>
+   	    <action android:name="com.google.firebase.MESSAGING_EVENT" />
+       </intent-filter>
+   </service>
+   ```
+
+   
+
+4. Inside default activity class
 
    ```kotlin
    import android.os.Bundle
@@ -83,7 +107,7 @@ implementation 'com.github.muhammadisa:notiv:1.0.0'
    }
    ```
 
-4. Inside inside activity which will receive value from notification
+5. Inside inside activity which will receive value from notification
 
    ```kotlin
    import android.os.Bundle
