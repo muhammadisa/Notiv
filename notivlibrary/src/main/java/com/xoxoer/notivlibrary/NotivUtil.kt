@@ -1,9 +1,9 @@
 package com.xoxoer.notivlibrary
 
 import android.content.Intent
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.messaging.RemoteMessage
 import com.google.gson.Gson
 
 object NotivUtil {
@@ -25,12 +25,12 @@ object NotivUtil {
         }
     }
 
-    inline fun <reified T> resolveParcelable(
+    inline fun <reified T> resolveJson(
         intent: Intent,
         crossinline onResolved: (resolved: T) -> Unit
     ) {
         try {
-            val parcelable = intent.extras!!["parcelable"].toString()
+            val parcelable = intent.extras!!["json"].toString()
             onResolved(Gson().fromJson(parcelable, T::class.java))
         } catch (e: NullPointerException) {
             e.printStackTrace()
@@ -53,5 +53,33 @@ object NotivUtil {
         } catch (e: NullPointerException) {
             e.printStackTrace()
         }
+    }
+
+    inline fun <reified T> resolveRedirectResult(
+        intent: Intent,
+        crossinline onResolved: (resolved: Pair<Keys?, T?>) -> Unit
+    ) {
+        onResolved(
+            Pair(
+                intent.getParcelableExtra("redirect_keys"),
+                Gson().fromJson(intent.getStringExtra("redirect_json_content"), T::class.java)
+            )
+        )
+    }
+
+    fun resolveKeys(remoteMessage: RemoteMessage): Keys {
+        return Keys(
+            remoteMessage.data["key_1"].toString(),
+            remoteMessage.data["key_2"].toString(),
+            remoteMessage.data["key_3"].toString(),
+            remoteMessage.data["key_4"].toString()
+        )
+    }
+
+    fun activityMapper(
+        action: String?,
+        activities: Map<String, AppCompatActivity>
+    ): Class<out AppCompatActivity> {
+        return (activities[action] ?: error(""))::class.java
     }
 }

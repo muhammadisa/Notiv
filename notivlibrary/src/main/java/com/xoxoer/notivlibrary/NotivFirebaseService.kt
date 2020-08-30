@@ -39,6 +39,8 @@ abstract class NotivFirebaseService constructor(
             defaultActivities::class.java
         }
         val resultIntent = Intent(this, activity)
+            .putExtra("redirect_keys", NotivUtil.resolveKeys(remoteMessage))
+            .putExtra("redirect_json_content", remoteMessage.data["json"])
         val resultPendingIntent = PendingIntent.getActivity(
             this,
             randomNotificationId,
