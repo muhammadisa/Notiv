@@ -163,6 +163,33 @@ implementation 'com.github.muhammadisa:notiv:1.0.0'
    }
    ```
 
+## Send FCM Test
+
+```json
+Header: Authorization key=your_server_key
+		Content-Type application/json
+{
+    "to": "device_fcm_token",
+    "priority": "high",
+    "notification": {
+        "body": "Body of Your Notification",
+        "title": "Title of Your Notification"
+    },
+    "data": {
+        "body": "Body of Your Notification",
+        "title": "Title of Your Notification",
+        "click_action": "MAIN",
+        "json": "{\"name\":\"Wake\",\"age\":29}",
+        "key_1": "Value for key_1",
+        "key_2": "Value for key_2",
+        "key_3": "Value for key_3",
+        "key_4": "Value for key_4"
+    }
+}
+```
+
+
+
 ## Author
 
 👤 **Muhammad Isa Wijaya Kusuma**
