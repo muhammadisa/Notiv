@@ -14,7 +14,7 @@
 
 ## How it's works?
 
-<img src="notiv-flow.pdf" width="250">
+<img src="notiv-flow.png" width="250">
 
 ## Install
 
