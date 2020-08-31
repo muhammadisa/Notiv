@@ -12,6 +12,10 @@
 
 > Short introduction, this is helps you for notification redirect with FCM payload, this will be handle background notification click and on app notification click
 
+## How it's works?
+
+<img src="notiv-flow.pdf" width="250">
+
 ## Install
 
 For installation just add this code in your app build.gradle file
