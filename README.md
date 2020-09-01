@@ -22,7 +22,7 @@ Read the terms https://github.com/muhammadisa/notiv/blob/master/CONTRIBUTING.md
 
 ## Need Example?
 
-Just click this link https://github.com/muhammadisa/notiv/tree/master/example/src/main/java/com/xoxoer/example
+Just click this link https://github.com/muhammadisa/notiv/tree/master/app/src/main/java/com/xoxoer/notiv
 
 ## Install
 
