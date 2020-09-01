@@ -16,6 +16,14 @@
 
 <img src="notiv-flow.png" width="250">
 
+## Contribute?
+
+Read the terms https://github.com/muhammadisa/notiv/blob/master/CONTRIBUTING.md
+
+## Need Example?
+
+Just click this link https://github.com/muhammadisa/notiv/tree/master/example/src/main/java/com/xoxoer/example
+
 ## Install
 
 For installation just add this code in your app build.gradle file
